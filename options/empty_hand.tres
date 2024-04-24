@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" script_class="WheelOption" load_steps=3 format=3 uid="uid://da5wtfh81mave"]
+
+[ext_resource type="Script" path="res://wheel_option.gd" id="1_oyrlq"]
+[ext_resource type="Texture2D" uid="uid://dwp3jl53wdg4k" path="res://options/items2.png" id="1_u43mq"]
+
+[resource]
+atlas = ExtResource("1_u43mq")
+region = Rect2(128, 128, 32, 32)
+script = ExtResource("1_oyrlq")
+name = "Empty Hand"

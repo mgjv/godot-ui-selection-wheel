@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" script_class="WheelOption" load_steps=3 format=3 uid="uid://cxenihi6ln1pc"]
+
+[ext_resource type="Texture2D" uid="uid://dsa0qoq4u7rb4" path="res://options/items1.png" id="1_ji2l6"]
+[ext_resource type="Script" path="res://wheel_option.gd" id="2_52bpo"]
+
+[resource]
+atlas = ExtResource("1_ji2l6")
+region = Rect2(64, 0, 32, 32)
+script = ExtResource("2_52bpo")
+name = "Potion"

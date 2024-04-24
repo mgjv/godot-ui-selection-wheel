@@ -1,0 +1,22 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcbnibit6jvpk"]
+
+[ext_resource type="Script" path="res://wheel.gd" id="1_tc2qm"]
+[ext_resource type="Texture2D" uid="uid://da5wtfh81mave" path="res://options/empty_hand.tres" id="2_4dsg6"]
+[ext_resource type="Texture2D" uid="uid://cq673mt6vapb4" path="res://options/fire.tres" id="3_x2vlh"]
+[ext_resource type="Texture2D" uid="uid://f520n8ajnrik" path="res://options/ice.tres" id="4_26qpy"]
+[ext_resource type="Texture2D" uid="uid://b6eyjinmcvw2m" path="res://options/hammer.tres" id="5_is2pf"]
+[ext_resource type="Texture2D" uid="uid://bfxe3hs4le0re" path="res://options/egg.tres" id="6_vbk4x"]
+[ext_resource type="Texture2D" uid="uid://cxenihi6ln1pc" path="res://options/potion.tres" id="7_frswe"]
+
+[node name="Wheel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tc2qm")
+background_colour = Color(0.212305, 0.212305, 0.212305, 1)
+options = Array[Resource("res://wheel_option.gd")]([ExtResource("2_4dsg6"), ExtResource("3_x2vlh"), ExtResource("4_26qpy"), ExtResource("5_is2pf"), ExtResource("6_vbk4x"), ExtResource("7_frswe")])
