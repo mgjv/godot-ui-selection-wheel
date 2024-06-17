@@ -19,10 +19,23 @@ extends Control
 ## Colour to use when highlighting selection
 @export var highlight_colour := Color.LIGHT_SLATE_GRAY
 
+
+## By how much the icon of the options should be scaled
+## This allows fine-tuning of the artwork to the wheel size
+## The assumption is that all artwork needs to be scaled the same way
+@export var option_scale := 1.0
+
 ## The options available on the wheel
 @export var options : Array[WheelOption]
 
+
 var selected: int
+
+func _ready():
+	if OS.is_debug_build():
+		for option in options:
+			assert(option != null)
+
 
 func _draw() -> void:
 	# Set up the circles
@@ -67,18 +80,19 @@ func draw_highlight_slice(start: float, end: float) -> void:
 	var radius := (outer_radius + inner_radius)/2.0
 	draw_arc(Vector2.ZERO, radius, start, end, 50, highlight_colour, thickness)
 
-# Just doing this because the artwork I used is small
-const ICON_SCALE = 2.0
 
 func get_option() -> WheelOption:
 	return options[selected]
 
+
 ## Draw a single option at this position.
 ## This implementation uses a AtlasTexture
 func draw_option(option: WheelOption, pos: Vector2) -> void:
-	draw_set_transform(Vector2.ZERO, 0, ICON_SCALE * Vector2.ONE)
-	var bounds := Rect2(pos/ICON_SCALE + WheelOption.SIZE/-2, WheelOption.SIZE)
-	draw_texture_rect_region(option.atlas, bounds, option.region)
+	if not option:
+		return
+	
+	draw_set_transform(Vector2.ZERO, 0, option_scale * Vector2.ONE)
+	option.draw(get_canvas_item(), pos/option_scale + WheelOption.SIZE/-2)
 	draw_set_transform(Vector2.ZERO)
 	
 

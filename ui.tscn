@@ -1,15 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://drgv4id4abkvu"]
+[gd_scene load_steps=9 format=3 uid="uid://drgv4id4abkvu"]
 
 [ext_resource type="PackedScene" uid="uid://bcbnibit6jvpk" path="res://wheel.tscn" id="1_21kln"]
 [ext_resource type="Script" path="res://ui.gd" id="1_n8pob"]
+[ext_resource type="Texture2D" uid="uid://da5wtfh81mave" path="res://options/empty_hand.tres" id="3_iqg8d"]
+[ext_resource type="Texture2D" uid="uid://cq673mt6vapb4" path="res://options/fire.tres" id="4_avtqi"]
+[ext_resource type="Texture2D" uid="uid://bfxe3hs4le0re" path="res://options/egg.tres" id="5_bmphn"]
+[ext_resource type="Texture2D" uid="uid://b6eyjinmcvw2m" path="res://options/hammer.tres" id="6_c7eqc"]
+[ext_resource type="Texture2D" uid="uid://f520n8ajnrik" path="res://options/ice.tres" id="7_s4es6"]
+[ext_resource type="Texture2D" uid="uid://cxenihi6ln1pc" path="res://options/potion.tres" id="8_ir651"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_n8pob")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
+[node name="Selection" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_right = 45.0
 offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
 text = "Selection: []"
 
+[node name="Help Text" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Press TAB to show the wheel and release to select something"
+
 [node name="Wheel" parent="." instance=ExtResource("1_21kln")]
-visible = false
+background_colour = Color(0.272047, 0.272047, 0.272047, 1)
+foreground_colour = Color(0.764511, 0.764511, 0.764511, 1)
+highlight_colour = Color(1, 1, 1, 0.247059)
+option_scale = 3.0
+options = Array[Resource("res://wheel_option.gd")]([ExtResource("3_iqg8d"), ExtResource("4_avtqi"), ExtResource("5_bmphn"), ExtResource("6_c7eqc"), ExtResource("7_s4es6"), ExtResource("8_ir651")])
